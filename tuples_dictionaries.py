@@ -22,3 +22,25 @@ PriceData['Low']  = 252.03
 PriceData['Close'] = 257.99
 
 print(PriceData)
+
+# dictionary bevásárlólista -------------------------
+
+prices = {
+    "spagetti" : 5.2,
+    "pizza" : 4.98,
+    "hamburger" : 6.0
+}
+
+quantity = {
+    "spagetti" : 2,
+    "pizza" : 4,
+    "hamburger" : 6
+}
+
+money_spent = 0
+
+for i in prices:
+    money_spent += (prices[i]*quantity[i])
+
+print("A kajára költött pénz: ",round(money_spent,2)," $.")    
+# ------------------------------------------------------
