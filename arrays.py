@@ -10,5 +10,6 @@ a[1,3]=8
 
 print(a)
 print("")
+
 print(a[0])
 print(a[1])
