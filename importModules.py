@@ -18,7 +18,7 @@ import math as m
 print(m.sqrt(49))
 
 # ... és mégegy:
-#from math import * # ez minden osztályt behív a modulból
+#from math import * # ez minden osztályt behív a modulból nem túl jó, mert pl. lehetnek névegyezések más modulokban lévő osztályokkal
 
 print(sqrt(64))
 
