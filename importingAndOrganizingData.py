@@ -8,4 +8,13 @@ print(ser)
 #dataframe
 from pandas_datareader import data as wb # wb mint web
 
-PG = wb.DataReader('PG', data_source='morningstar', start = '1995-01-01') 
+PG = wb.DataReader('PG', data_source='iex', start = '2014-01-01') # iex mellett morningstar-ral is lehet próbálkozni 
+
+print(PG)
+
+tickers = ['PG', 'MSFT', 'T', 'F', 'GE']
+new_Data = pd.DataFrame()
+for t in tickers:
+    new_Data[t] = wb.DataReader(t, data_source='iex', start='2014-01-01')['close']
+
+print(new_Data.tail())  
