@@ -5,13 +5,14 @@ import pandas as pd
 ser = pd.Series(np.random.random(5), name = 'Column 01')
 print(ser)
 
-#dataframe
+#dataframe PG
 from pandas_datareader import data as wb # wb mint web
 
 PG = wb.DataReader('PG', data_source='iex', start = '2014-01-01') # iex mellett morningstar-ral is lehet próbálkozni 
 
 print(PG)
 
+# több instrumentum lehívása
 tickers = ['PG', 'MSFT', 'T', 'F', 'GE']
 new_Data = pd.DataFrame()
 for t in tickers:
