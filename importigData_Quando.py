@@ -20,3 +20,9 @@ mydata_02.to_excel(os.environ['USERPROFILE']+'/Documents/GitHub/Python/csvData/t
 #lehagyja a beolvasásból az alapértelmezett sorszámozást és az indexelő oszlop a megadott oszlop lesz 
 mydata_03 = pd.read_csv(os.environ['USERPROFILE']+'/Documents/GitHub/Python/csvData/Data_02.csv', index_col='Date')
 print(mydata_03)
+
+#excel beolvasása
+mydata_04 = pd.read_excel(os.environ['USERPROFILE']+'/Documents/GitHub/Python/csvData/Data_03.xlsx')
+print(mydata_04)
+mydata_04 = mydata_04.set_index('Year') #utólag indexeli a behívott adatokat a Year oszloppal
+print(mydata_04)
