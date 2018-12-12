@@ -3,3 +3,10 @@
 *.json
 *.json
 .vscode/settings.json
+.idea/workspace.xml
+.idea/Python.iml
+.idea/modules.xml
+.idea/misc.xml
+.idea/encodings.xml
+.idea/vcs.xml
+.vscode/settings.json
