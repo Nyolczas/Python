@@ -5,27 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jegyzet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="jegyzetstyle.css">
 </head>
 <body>
-    <p class="jegyzet">ha már telepítve van a django, az Anaconda prompt-ban futtatni kell:</p>
-    <p class="code">activate MyDjangoEnv</p>
-    <p class="jegyzet">A fő könyvtárba kell menni és ott:</p>
-    <p class="code">django-admin startproject <em>sajat_projekt</em></p>
-    <p class="jegyzet">A  <em>sajat_projekt</em> könyvtárba kell menni és ott:</p>
-    <p class="code">manage.py startapp  <em>sajat_app</em></p>
-    <hr>
-    <p class="jegyzet">A settings-ben az "INSTALLED_APPS" listához hozzá kell adni a saját app-unkat</p>
-    <p class="kodSor">'sajat_app.apps.SajatAppConfig',</p>
-    <p class="jegyzet">A <em>sajat_app/views.py</em> fileba bele kell írni az oldal tartalmát:</p>
-    <p class="kodSor">from django.http import HttpResponse <br>
-        <br>
-        def index(request): <br>
-        return HttpResponse("Hello World!"),
-    </p>
-    <p class="jegyzet">A <em>sajat_projekt/urls.py</em> fileba be kell imortálni:</p>
-    <p class="kodSor">from sajat_app import views,</p>
-    <p class="jegyzet">és az urlpatterns listához hozzá kell adni:</p>
-    <p class="kodSor"> path('', views.index, name='index'),</p>
+    <main role="main" class="container">
+        <h1></h1>
+        <h2>Django framework használata</h2>
+        <hr>
+        <ol>
+            <li> 
+                <h5>Anaconda Prompt</h5>        
+                <p class="jegyzet">ha már telepítve van a django, az Anaconda prompt-ban futtatni kell:</p>
+                <p class="code">activate MyDjangoEnv</p>
+                <p class="jegyzet">A fő könyvtárba kell menni és ott:</p>
+                <p class="code">django-admin startproject <em>sajat_projekt</em></p>
+                <p class="jegyzet">A  <em>sajat_projekt</em> könyvtárba kell menni és ott:</p>
+                <p class="code">manage.py startapp  <em>sajat_app</em></p>
+            </li>
+            <li>
+                <h5>sajat_project / settings.py</h5>
+                <p class="jegyzet">A settings-ben az "INSTALLED_APPS" listához hozzá kell adni a saját app-unkat</p>
+                <p class="kodSor">'sajat_app.apps.SajatAppConfig',</p>
+            </li>
+            <li>
+                <h5>sajat_app/views.py</h5>
+                <p class="jegyzet">A <em>sajat_app/views.py</em> fileba bele kell írni az oldal tartalmát:</p>
+                <p class="kodSor">from django.http import HttpResponse <br>
+                    <br>
+                    def index(request): <br>
+                    return HttpResponse("Hello World!"),
+                </p>
+            </li>
+            <li>
+                <h5>sajat_projekt/urls.py</h5>
+                <p class="jegyzet">A <em>sajat_projekt/urls.py</em> fileba be kell imortálni:</p>
+                <p class="kodSor">from sajat_app import views,</p>
+                <p class="jegyzet">és az urlpatterns listához hozzá kell adni:</p>
+                <p class="kodSor"> path('', views.index, name='index'),</p>
+            </li>
+            <li>
+                <h5>Anaconda Prompt</h5> 
+                <p class="jegyzet">el kell indítani a szervert:</p>
+                <p class="code">manage.py runserver</p>  
+            </li>
+        </ol>
+        <hr>
+    </main>
    
 </body>
 </html>

@@ -1,0 +1,11 @@
+.code, .kodSor {
+    background-color: #1b1b1b;
+    color:#ddd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.kodSor {
+    background-color: #2c3b4e;
+    color:rgb(250, 227, 190);
+}
