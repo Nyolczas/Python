@@ -31,7 +31,7 @@
             </li>
             <li>
                 <h5>sajat_app/views.py</h5>
-                <p class="jegyzet">A <em>sajat_app/views.py</em> fileba bele kell írni az oldal tartalmát:</p>
+                <p class="jegyzet">A <em>sajat_app/views.py</em> fileba hivatkozni kell a HttpResponse-ra majd definiálni kell a nézetet:</p>
                 <p class="kodSor">from django.http import HttpResponse <br>
                     <br>
                     def index(request): <br>
@@ -40,9 +40,9 @@
             </li>
             <li>
                 <h5>sajat_projekt/urls.py</h5>
-                <p class="jegyzet">A <em>sajat_projekt/urls.py</em> fileba be kell imortálni:</p>
+                <p class="jegyzet">A <em>sajat_projekt/urls.py</em> fileba be kell imortálni a nézeteket:</p>
                 <p class="kodSor">from sajat_app import views,</p>
-                <p class="jegyzet">és az urlpatterns listához hozzá kell adni:</p>
+                <p class="jegyzet">és az urlpatterns listához hozzá kell adni az újonnan létrehozott nézetet:</p>
                 <p class="kodSor"> path('', views.index, name='index'),</p>
             </li>
             <li>
