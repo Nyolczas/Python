@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jegyzet</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="jegyzetstyle.css">
 </head>
+
 <body>
     <main role="main" class="container">
         <h1></h1>
         <h2>Django framework használata</h2>
         <hr>
         <ol>
-            <li> 
-                <h5>Anaconda Prompt</h5>        
+            <li>
+                <h5>Anaconda Prompt</h5>
                 <p class="jegyzet">ha már telepítve van a django, az Anaconda prompt-ban futtatni kell:</p>
                 <p class="code">activate MyDjangoEnv</p>
                 <p class="jegyzet">A fő könyvtárba kell menni és ott:</p>
                 <p class="code">django-admin startproject <em>sajat_projekt</em></p>
-                <p class="jegyzet">A  <em>sajat_projekt</em> könyvtárba kell menni és ott:</p>
-                <p class="code">manage.py startapp  <em>sajat_app</em></p>
+                <p class="jegyzet">A <em>sajat_projekt</em> könyvtárba kell menni és ott:</p>
+                <p class="code">manage.py startapp <em>sajat_app</em></p>
             </li>
             <li>
                 <h5>sajat_project / settings.py</h5>
@@ -31,33 +35,75 @@
             </li>
             <li class="new">
                 <h5>sajat_app/views.py</h5>
-                <p class="jegyzet">A <em> <b>sajat_app/views.py</b> </em> fileba hivatkozni kell a HttpResponse-ra majd definiálni kell a nézetet:</p>
-                <div class="kodSor">
-                    <p>
-                    from django.http import HttpResponse </p>
+                <p class="jegyzet">A <em> <b>sajat_app/views.py</b> </em> fileba hivatkozni kell a HttpResponse-ra majd
+                    definiálni kell a nézetet:</p>
+                <p class="kodSor">
+                        from django.http import HttpResponse 
                     <br>
-                    def index(request): 
-                    <p class="tab">my_dict = {'insert_me' : 'Helló, én a view tartalma vagyok!'}
-                        <br>
-                    return render(request,'level2_app/index.html',context=my_dict)</p>    
-                    </p>
+                    def index(request): <br>
+                    <span class="tab">my_dict = {'insert_me' : 'Helló, én a view tartalma vagyok!'}</span>
+                    <br>
+                    <span class="tab"> return render(request,'level2_app/index.html',context=my_dict)</span>
+                </p>
+            </li>
+
+            <li class="new">
+                <h5>sajat_app/urls.py</h5>
+                <p class="jegyzet">A <em> <b>sajat_app</b> </em> mappába létre kell hozni az <em> <b>urls.py</b> </em>file-t
+                    és be kell imortálni a nézeteket:</p>
+                <div class="kodSor">
+                    <p>from django.urls import path <br>
+                        from . import views</p>
                 </div>
+                <br>
+                <p class="jegyzet">majd az urlpatterns listához hozzá kell adni az újonnan létrehozott nézetet:</p>
+                <p class="kodSor">urlpatterns = [ <br>
+                    <span class="tab">path('', views.index, name='index')</span> <br>
+                    ]</p>
             </li>
-            <li>
+
+            <li class="new">
                 <h5>sajat_projekt/urls.py</h5>
-                <p class="jegyzet">A <em>sajat_projekt/urls.py</em> fileba be kell imortálni a nézeteket:</p>
-                <p class="kodSor">from sajat_app import views,</p>
-                <p class="jegyzet">és az urlpatterns listához hozzá kell adni az újonnan létrehozott nézetet:</p>
-                <p class="kodSor"> path('', views.index, name='index'),</p>
+                <p class="jegyzet">A <em> <b>sajat_projekt/urls.py</b> </em> fileba be kell importálni a sajat_app
+                    views-át</p>
+
+                <p class="kodSor">from django.contrib import admin <br>
+                    from django.urls import path, include <br>
+                    from level2_app import views</p>
+
+                <p class="jegyzet">A majd be kell írni az url patterneket:</p>
+
+                <p class="kodSor">urlpatterns = [ <br>
+                    <span class="tab">path('', views.index, name="index"),</span> <br>
+                    <span class="tab">path('sajat_app/', include('sajat_app.urls')),</span> <br>
+                    <span class="tab">path('admin/', admin.site.urls),</span> <br>
+                    ]</p>
             </li>
+
+            <li class="new">
+                <h5>sajat_app/templates</h5>
+                <p class="jegyzet">A <em> <b>sajat_app</b> </em> mappában létre kell hozni a <em> <b>templates/sajat_app</b>
+                    </em> mappákat,
+                    majd a <em> <b>templates/sajat_app</b> </em> mappába létre kell hozni az <b>index.html</b> vázát.
+                    <br>
+                    <br>
+                    A klasszikus html-be bele lehet ágyazni a python által generált (a views-ben meghatározott) adatot:
+                </p>
+
+                <p class="kodSor">
+                    {{ insert_me }}
+                </p>
+            </li>
+
             <li>
-                <h5>Anaconda Prompt</h5> 
+                <h5>Anaconda Prompt</h5>
                 <p class="jegyzet">el kell indítani a szervert:</p>
-                <p class="code">manage.py runserver</p>  
+                <p class="code">manage.py runserver</p>
             </li>
         </ol>
         <hr>
     </main>
-   
+
 </body>
+
 </html>
